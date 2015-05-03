@@ -1,0 +1,36 @@
+{
+  "name": "littlelogs",
+  "version": "1.0.0",
+  "description": "Node.js utility for posting to http://littlelogs.co/",
+  "main": "index.js",
+  "bin": {
+    "littlelogger" : "./bin/littlelogger.js"
+  },
+  "scripts": {
+    "test": "standard && tape test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joshgillies/node-littlelogs.git"
+  },
+  "keywords": [
+    "littlelogs",
+    "little",
+    "logs"
+  ],
+  "author": "Josh Gillies <npm@joshgilli.es> (http://joshgilli.es/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joshgillies/node-littlelogs/issues"
+  },
+  "homepage": "https://github.com/joshgillies/node-littlelogs",
+  "dependencies": {
+    "mailgun": "^0.5.0",
+    "minimist": "^1.1.1",
+    "rc": "^1.0.1"
+  },
+  "devDependencies": {
+    "standard": "^3.7.2",
+    "tape": "^4.0.0"
+  }
+}

@@ -1,5 +1,5 @@
-var littlelog = require('..')
-var config = require('rc')('littlelog', {
+var logger = require('..')
+var config = require('rc')('littlelogger', {
   initialized: false
 })
 var argv = require('minimist')(process.argv.slice(2))

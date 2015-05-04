@@ -1,4 +1,4 @@
-# node-littlelogs
+# littlelogger
 
 Node.js utility for posting to http://littlelogs.co/
 
@@ -8,8 +8,9 @@ Node.js utility for posting to http://littlelogs.co/
 var logger = require('littlelogger')
 
 var log = logger('email-secret@mailbot.littlelogs.co', 'mailgun-api-key')
+var message = 'Totally using a #nodejs/#npm module (#littlelogger) to post to #littlelogs!'
 
-log.send('Today I used #littlelogger from #npm to post to #littlelog', function (err) {
+log.send(message, function (err) {
   if (err) {
     return console.log(err)
   }

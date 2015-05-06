@@ -1,8 +1,8 @@
 var Mailgun = require('mailgun').Mailgun
 
-function Logger (email, apiToken) {
-  this.email = email
-  this.mailgun = new Mailgun(apiToken)
+function Logger (opts) {
+  this.email = opts.email
+  this.mailgun = new Mailgun(opts.apiToken)
 }
 
 Logger.prototype.send = function send (message, cb) {

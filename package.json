@@ -4,7 +4,7 @@
   "description": "Node.js utility for posting to http://littlelogs.co/",
   "main": "index.js",
   "bin": {
-    "littlelogger" : "./bin/littlelogger.js"
+    "littlelogger": "./bin/littlelogger.js"
   },
   "scripts": {
     "test": "standard && tape test.js"
@@ -26,8 +26,9 @@
   "homepage": "https://github.com/joshgillies/node-littlelogs",
   "dependencies": {
     "mailgun": "^0.5.0",
-    "minimist": "^1.1.1",
-    "rc": "^1.0.1"
+    "osenv": "^0.1.0",
+    "rc": "^1.0.1",
+    "read": "^1.0.5"
   },
   "devDependencies": {
     "standard": "^3.7.2",

@@ -13,6 +13,18 @@ Logger.prototype.send = function send (message, cb) {
   this.mailgun.sendText('noreply@test.com', this.email, 'Little Log', message, cb)
 }
 
-module.exports = function logger (email, apiToken) {
-  return new Logger(email, apiToken)
+module.exports = function logger (email, opts) {
+  if (!opts) {
+    opts = {}
+  }
+
+  if (typeof email === 'object') {
+    opts = email
+  }
+
+  if (typeof email === 'string') {
+    opts.email = email
+  }
+
+  return new Logger(opts)
 }

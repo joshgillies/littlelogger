@@ -1,5 +1,7 @@
 # littlelogger
 
+[![Build Status](https://travis-ci.org/joshgillies/littlelogger.svg)](https://travis-ci.org/joshgillies/littlelogger)
+
 Node.js utility for posting to http://littlelogs.co/
 
 ## Example

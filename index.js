@@ -1,16 +1,38 @@
-var Mailgun = require('mailgun').Mailgun
+var nodemailer = require('nodemailer')
 
 function Logger (opts) {
   this.email = opts.email
-  this.mailgun = new Mailgun(opts.apiToken)
+  this.transport = nodemailer.createTransport(opts.transport)
+}
+
+Logger.prototype.createTransport = function createTransport (opts) {
+  this.transport = nodemailer.createTransport(opts)
 }
 
 Logger.prototype.send = function send (message, cb) {
-  if (message.length > 250) {
-    cb(new Error('Unable to post message. Message length must be <=250 characters'))
-    return
+  var opts = {}
+
+  cb = cb || function noop () {}
+
+  if (typeof message === 'object') {
+    opts = message
   }
-  this.mailgun.sendText('noreply@test.com', this.email, 'Little Log', message, cb)
+
+  if (typeof message === 'string') {
+    opts = {
+      from: this.email,
+      to: 'noreply@test.com',
+      subject: 'littlelogger',
+      text: message
+    }
+
+    if (opts.message.length > 250) {
+      cb(new Error('Unable to post message. Message length must be <=250 characters'))
+      return
+    }
+  }
+
+  this.transport.sendMail(opts, cb)
 }
 
 module.exports = function logger (email, opts) {

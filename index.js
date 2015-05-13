@@ -20,8 +20,8 @@ Logger.prototype.send = function send (message, cb) {
 
   if (typeof message === 'string') {
     opts = {
-      from: this.email,
-      to: 'noreply@test.com',
+      from: 'noreply@test.com',
+      to: this.email,
       subject: 'littlelogger',
       text: message
     }
@@ -35,17 +35,10 @@ Logger.prototype.send = function send (message, cb) {
   this.transport.sendMail(opts, cb)
 }
 
-module.exports = function logger (email, opts) {
-  if (!opts) {
-    opts = {}
-  }
-
-  if (typeof email === 'object') {
-    opts = email
-  }
-
+module.exports = function logger (opts) {
   if (typeof email === 'string') {
-    opts.email = email
+    opts = {}
+    opts.email = opts
   }
 
   return new Logger(opts)

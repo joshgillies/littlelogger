@@ -21,24 +21,26 @@ Logger.prototype.send = function send (message, cb) {
   if (typeof message === 'string') {
     opts = {
       from: 'noreply@test.com',
-      to: this.email,
       subject: 'littlelogger',
       text: message
     }
 
-    if (opts.message.length > 250) {
+    if (opts.text.length > 250) {
       cb(new Error('Unable to post message. Message length must be <=250 characters'))
       return
     }
   }
 
+  opts.to = this.email
+
   this.transport.sendMail(opts, cb)
 }
 
 module.exports = function logger (opts) {
-  if (typeof email === 'string') {
-    opts = {}
-    opts.email = opts
+  if (typeof opts === 'string') {
+    opts = {
+      email: opts
+    }
   }
 
   return new Logger(opts)

@@ -1,6 +1,7 @@
 # littlelogger
 
 [![Build Status](https://travis-ci.org/joshgillies/littlelogger.svg)](https://travis-ci.org/joshgillies/littlelogger)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
 
 Node.js utility for posting to http://littlelogs.co/
 
@@ -30,8 +31,14 @@ Where `opts` is an Object with the following properties:
   * `opts.email`: your secret email address as provided by littlelogs
   * `opts.transport`: a [Nodemailer supported transport]. Defaults to [nodemailer-direct-transport].
 
-[Nodemailer supported transport]:https://github.com/andris9/Nodemailer#available-transports
-[nodemailer-direct-transport]:https://github.com/andris9/nodemailer-direct-transport
+Optionally you may pass a String as the `opts` argument as a short-hand for `opts.email`.
+
+Useful should you wish to use the default [nodemailer-direct-transport], or want to set your desired
+transport later via `logger.createTransport()`.
+
+### logger.createTransport(transport)
+
+Accepts a [Nodemailer supported transport] as it's first argument `transport`.
 
 ### logger.send(message, cb(err, info))
 
@@ -44,3 +51,6 @@ argument.
 ## License
 
 MIT
+
+[Nodemailer supported transport]:https://github.com/andris9/Nodemailer#available-transports
+[nodemailer-direct-transport]:https://github.com/andris9/nodemailer-direct-transport

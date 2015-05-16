@@ -1,5 +1,5 @@
 {
-  "name": "littlelogs",
+  "name": "littlelogger",
   "version": "1.0.0",
   "description": "Node.js utility for posting to http://littlelogs.co/",
   "main": "index.js",

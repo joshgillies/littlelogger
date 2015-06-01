@@ -1,6 +1,6 @@
 {
   "name": "littlelogger",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Node.js utility for posting to http://littlelogs.co/",
   "main": "index.js",
   "scripts": {

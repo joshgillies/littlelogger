@@ -10,7 +10,7 @@ Node.js utility for posting to http://littlelogs.co/
 ```js
 var logger = require('littlelogger')
 
-var log = logger('email-secret@mailbot.littlelogs.co')
+var log = logger('your-email-secret')
 var message = 'Totally using a #nodejs/#npm module (#littlelogger) to post to #littlelogs!'
 
 log.send(message, function (err, info) {
